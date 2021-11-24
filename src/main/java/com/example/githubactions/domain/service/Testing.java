@@ -4,13 +4,4 @@ public class Testing {
   public boolean isAdult(int age) {
     return age >= 18;
   }
-
-
-
-
-
-
-
-
-  
 }
