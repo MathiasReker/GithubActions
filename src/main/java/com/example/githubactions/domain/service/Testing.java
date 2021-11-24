@@ -5,5 +5,3 @@ public class Testing {
     return age >= 18;
   }
 }
-
-
