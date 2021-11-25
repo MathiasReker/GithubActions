@@ -22,4 +22,6 @@ jobs:
       - name: Build with Maven
         run: mvn -B clean package -Dmaven.test.skip.exec
       - name: Unit Test
-        run: mvn test
+        run: mvn '-Dtest=com.example.githubactions.Test.*Test*' test
+      - name: Integration Test
+        run: mvn '-Dtest=com.example.githubactions.IT.*Test*' test
