@@ -11,7 +11,7 @@ class TestingTest {
   }
 
   @Test
-  void When_AgeLessThan18_Expect_isAdultAsTrue() {
+  void When_AgeMoreThan18_Expect_isAdultAsTrue() {
     Assertions.assertTrue(new Testing().isAdult(20));
   }
 }
