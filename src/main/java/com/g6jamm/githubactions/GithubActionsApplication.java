@@ -1,4 +1,4 @@
-package com.example.githubactions;
+package com.g6jamm.githubactions;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

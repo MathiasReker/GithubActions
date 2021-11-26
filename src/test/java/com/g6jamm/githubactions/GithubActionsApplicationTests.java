@@ -1,4 +1,4 @@
-package com.example.githubactions;
+package com.g6jamm.githubactions;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
