@@ -1,0 +1,46 @@
+name: 🚀 User Story
+description: What this user story is about
+labels: [ "User-story", "New" ]
+body:
+  - type: checkboxes
+    attributes:
+      label: User story
+      options:
+        - label: "`epic`"
+  - type: textarea
+    id: story
+    attributes:
+      label: Story
+      placeholder: As a <type of user>, I want <to perform some task>, so that I can <achieve some goal>.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      placeholder: Scenario A <What should happen>Given that <some context>, when <some action is done>, then <such outcomes are expected to occur>.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: <optional>
+    validations:
+      required: false
+  - type: textarea
+    id: addition
+    attributes:
+      label: Addition
+      description: <optional>
+    validations:
+      required: false
+  - type: checkboxes
+    attributes:
+      label: Priority
+      options:
+        - label: "`high`"
+        - label: "`medium`"
+        - label: "`low`"
+        - label: "`unprioritized`"
+  
