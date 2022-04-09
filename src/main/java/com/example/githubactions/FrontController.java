@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
-public class TestController {
+public class FrontController {
   @GetMapping("/")
   public String hello() {
     return "Hello World";
