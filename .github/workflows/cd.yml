@@ -70,8 +70,7 @@ jobs: # Push image to GitHub Packages.
         run: |
           rsync -avz ./docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/
 
-      - uses: actions/checkout@v3
       - name: Build the stack
         run: |
-          docker-compose up -d
-          sleep 10
+          sudo docker-compose up -d
+          sleep 30
