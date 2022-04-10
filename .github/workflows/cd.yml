@@ -72,4 +72,6 @@ jobs: # Push image to GitHub Packages.
 
       - uses: actions/checkout@v3
       - name: Build the stack
-        run: docker-compose up -d
+        run: |
+          docker-compose up -d
+          sleep 10
