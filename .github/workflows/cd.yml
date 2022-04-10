@@ -69,8 +69,7 @@ jobs: # Push image to GitHub Packages.
       - name: Deploy with rsync
         run: |
           rsync -avz ./docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/
-          sudo docker-compose pull
-          sudo docker-compose up --force-recreate --build -d
-          sudo docker image prune -f
-          
 
+      - uses: actions/checkout@v3
+      - name: Build the stack
+        run: docker-compose up -d
