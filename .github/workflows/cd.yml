@@ -71,6 +71,4 @@ jobs:
       - name: Deploy with rsync
         run: |
           rsync -avz ./docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/
-          sudo apt-get update
-          sudo apt-get -y install docker-compose
-          sudo docker-compose up
+
