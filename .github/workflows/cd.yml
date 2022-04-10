@@ -69,4 +69,4 @@ jobs: # Push image to GitHub Packages.
       - name: Deploy with rsync
         run: |
           rsync -avz ./docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/
-          sudo docker-compose start
+          sudo docker-compose start -d
