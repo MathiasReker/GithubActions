@@ -73,8 +73,6 @@ jobs: # Push image to GitHub Packages.
       - name: Build the stack
         run: |
           sudo docker-compose up -d
-          ls ~/.ssh/ -lai
           
-       #- name: SSH
-          
-#        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ${{ secrets.SSH_PRIVATE_KEY }} "sudo docker-compose up -d"
+      - name: SSH 
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/id_rsa "sudo docker-compose up -d"
