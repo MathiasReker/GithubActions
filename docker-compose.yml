@@ -2,7 +2,7 @@ version: "3"
 
 services:
   backend:
-    image: ghcr.io/mathiasreker/demo-ksdfjsslfkja:latest
+    image: ghcr.io/mathiasreker/demo-ksdfjsslfkja:dev
     ports:
       - "80:8080"
     environment:
@@ -17,7 +17,7 @@ services:
       - mysqlDb
 
   mysqlDb:
-    image: mysql:8
+    image: mysql:latest
     ports:
       - "3307:3306"
     networks:
