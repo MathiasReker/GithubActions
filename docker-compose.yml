@@ -17,7 +17,7 @@ services:
       - mysqlDb
 
   mysqlDb:
-    image: mysql:latest
+    image: mysql:8
     ports:
       - "3307:3306"
     networks:
