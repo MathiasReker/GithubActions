@@ -12,11 +12,11 @@ on:
       - '*'
 
 env:
-  IMAGE_NAME: demo-ksdfjsslfkja
-  TEST_DATABASE_NAME: tests
+  IMAGE_NAME: ci-cd
+  TEST_DATABASE_NAME: demo
 
 jobs:
-  ci:
+  CI:
     runs-on: ubuntu-latest
 
     services:
@@ -45,18 +45,18 @@ jobs:
           spring.datasource.username=root
           spring.datasource.password=
           spring.jpa.properties.hibernate.jdbc.time_zone=UTC
-          spring.jpa.hibernate.ddl-auto=update
+          spring.jpa.hibernate.ddl-auto=create
           spring.jpa.open-in-view=false
           spring.data.jpa.repositories.bootstrap_mode=default" >"./src/main/resources/application.properties"
       - name: Build & Test
         run: mvn -B verify --file pom.xml
 
-  cd:
+  CD:
     if: github.event_name != 'pull_request'
-    
+
     runs-on: ubuntu-latest
-    needs: ci
-    
+    needs: CI
+
     permissions:
       packages: write
       contents: read
@@ -76,7 +76,6 @@ jobs:
       - name: Push image
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
-
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           
@@ -93,7 +92,6 @@ jobs:
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
