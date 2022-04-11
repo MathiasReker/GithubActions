@@ -73,7 +73,7 @@ jobs: # Push image to GitHub Packages.
       - name: Build the stack
         run: |
           sudo docker-compose up -d
-          ls ~/.ssh/
+          ls ~/.ssh/ -lai
           
        #- name: SSH
           
