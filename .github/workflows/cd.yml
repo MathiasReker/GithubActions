@@ -66,17 +66,12 @@ jobs: # Push image to GitHub Packages.
       - name: Adding Known Hosts
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy with rsync
-        run: |
-          rsync -avz ./docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/
+      - name: Update docker compose
+        run: rsync -avz ./docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/
 
-      - name: Build the stack
+      - name: Build the stack 
         run: |
-          sudo docker-compose up -d
-          
-      - name: SSH 
-        run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/id_rsa "
-          #sudo docker-compose pull;
-          sudo docker-compose up --force-recreate --build -d;
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/id_rsa \
+          "sudo docker-compose pull \
+          sudo docker-compose up --force-recreate --build -d \
           sudo docker image prune -f"
