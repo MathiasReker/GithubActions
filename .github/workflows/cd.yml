@@ -27,7 +27,7 @@ jobs: # Push image to GitHub Packages.
       - uses: actions/checkout@v3
 
       - name: build jar file
-        run: mvn clean install
+        run: mvn clean install -DskipTests
 
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
@@ -73,4 +73,6 @@ jobs: # Push image to GitHub Packages.
       - name: Build the stack
         run: |
           sudo docker-compose up -d
-          sleep 30
+
+      - name: SSH
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ${{ secrets.SSH_PRIVATE_KEY }} "sudo docker compose up -d"
