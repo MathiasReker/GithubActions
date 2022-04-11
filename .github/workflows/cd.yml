@@ -75,4 +75,4 @@ jobs: # Push image to GitHub Packages.
           sudo docker-compose up -d
 
       - name: SSH
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ${{ secrets.SSH_PRIVATE_KEY }} "sudo docker compose up -d"
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ${{ secrets.SSH_PRIVATE_KEY }} "sudo docker-compose up -d"
