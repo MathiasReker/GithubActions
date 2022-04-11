@@ -51,6 +51,8 @@ jobs:
     if: github.event_name != 'pull_request'
   
     runs-on: ubuntu-latest
+    needs: ci
+    
     permissions:
       packages: write
       contents: read
