@@ -1,21 +1,17 @@
 name: Build and Deploy Docker Image to Azure
 
 on:
-  push: # Publish `develop` as Docker `dev` image.
+  push:
     branches:
       - develop
 
-    # Publish `v1.2.3` tags as releases.
     tags:
       - v*
-
-  # Run tests for any PRs.
-  #pull_request:
 
 env:
   IMAGE_NAME: demo-ksdfjsslfkja
 
-jobs: # Push image to GitHub Packages.
+jobs:
 
   push:
     runs-on: ubuntu-latest
