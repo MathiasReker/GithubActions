@@ -7,5 +7,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 class GithubActionsApplicationTests {
 
   @Test
-  void contextLoads() {}
+  void contextLoads() {FAIL TEST}
 }
