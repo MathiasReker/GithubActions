@@ -72,5 +72,5 @@ jobs: # Push image to GitHub Packages.
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/id_rsa \
           "sudo docker-compose pull; \
-          sudo docker-compose up --force-recreate --build --env-file .env -d \
+          sudo docker-compose up --force-recreate --build -d \
           sudo docker image prune -f;"
