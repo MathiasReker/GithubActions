@@ -1,7 +1,7 @@
 name: Build and Deploy Docker Image to Azure
 
 on:
-  push: # Publish `master` as Docker `latest` image.
+  push: # Publish `develop` as Docker `dev` image.
     branches:
       - develop
 
@@ -10,13 +10,13 @@ on:
       - v*
 
   # Run tests for any PRs.
-  pull_request:
+  #pull_request:
 
 env:
   IMAGE_NAME: demo-ksdfjsslfkja
 
 jobs: # Push image to GitHub Packages.
-  # See also https://docs.docker.com/docker-hub/builds/
+
   push:
     runs-on: ubuntu-latest
     permissions:
@@ -49,8 +49,8 @@ jobs: # Push image to GitHub Packages.
           # Strip "v" prefix from tag name
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "develop" ] && VERSION=latest
+          # Use Docker `dev` tag convention
+          [ "$VERSION" == "develop" ] && VERSION=dev
           
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
